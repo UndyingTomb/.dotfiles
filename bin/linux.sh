@@ -1,4 +1,4 @@
-shebang '#!/bin/bash'
+ #!/bin/bash
 # This script checks the operating system type and performs the setup for Linux.
 # If the operating system is not Linux, the script logs an error and exits.
 # The script creates the '.TRASH' directory in the home directory, renames the '.vimrc' file to '.bup vimrc'
@@ -14,11 +14,11 @@ if [ ! -d "$HOME/.TRASH" ]; then
    mkdir "$HOME/.TRASH"
 fi
 # If the '.vimrc' file exists, rename it to '.bup_vimrc'.
-if [ -f "$HOME/.vimrc" ]; then
-   mv "$HOME/.vimrc" "$HOME/.bup_vimrc"
-   echo "The current .vimrc file was changed to '.bup_vimrc'." >> linuxsetup.log
+if [ -f $HOME/.vimrc ]; then
+   mv $HOME/.vimrc $HOME/.bup_vimrc
+   echo The current .vimrc file was changed to .bup_vimrc. >> linuxsetup.log
 fi
 # Overwrite the contents of the etc/vimrc file to a file called '.vimrc' in the home directory.
-cp "/etc/vimrc" "$HOME/.vimrc"
-# Add the statement 'source ∼/.dotfiles/etc/bashrc custom' to the end of the .bashrc file.
-echo "source ∼/.dotfiles/etc/bashrc custom" >> "$HOME/.bashrc"
+cp etc/vimrc $HOME/.vimrc
+# Add the stat:ement 'source ∼/.dotfiles/etc/bashrc custom' to the end of the .bashrc file.
+echo source ~/.dotfiles/etc/bashrc_custom >> $HOME/.bashrc
